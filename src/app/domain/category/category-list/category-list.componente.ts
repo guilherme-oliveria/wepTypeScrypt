@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core'
+import { style } from '@angular/core/src/animation/dsl';
 @Component({
-    select: 'category-list',
-    templateUrl: './category-list.componentt.html',
-    styleUrls: ['']
+    selector: 'category-list',
+    templateUrl: './category-list.componente.html',
+    styleUrls: ['./category-list.compomente.css']
 })
 export class CategoryListComponent implements OnInit {
     constructor(){}

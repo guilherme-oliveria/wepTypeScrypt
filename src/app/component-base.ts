@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core'
 @Component({
-    select: '',
+    selector: '',
     templateUrl: '',
     styleUrls: ['']
 })

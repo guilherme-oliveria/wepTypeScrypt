@@ -6,9 +6,7 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 const appRoutes: Routes =[
     { path: '', redirectTo: '/', pathMatch: 'full' },
-    {path: 'produto', component: ProdutoComponent},
-    {path: 'carrinho', component: CarrinhoComponent},
-    {path: 'category', loadChildren: ' app/domain/category/category.module'}
+    {path: 'category', loadChildren: 'app/domain/category/category.module#CategoryModule'}
 ];
 
 @NgModule({

@@ -6,35 +6,24 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 
 //Adicionar as rotas
-  import { RouterModule, Routes } from '@angular/router';
+  import { RouterModule} from '@angular/router';
 
 // importar todos os componentes
-import { ProdutoComponent } from './produto/produto.component';
-import { CategoriaComponent } from './categoria/categoria.component';
-import { CategoryListComponent } from './domain/category/category-list/category-list.componente';
 
 // Importar todos os Serviços
-import {ProdutoService} from './produto/produto.service';
-import { CarrinhoComponent } from './carrinho/carrinho.component';
-import {CarrinhoService} from './carrinho/carrinho.service';
-import { CategoryService } from './domain/category/category.service';
-
+import { AppRoutingModule } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProdutoComponent,
-    CategoriaComponent,
-    CarrinhoComponent
   ],
   imports: [
     BrowserModule,  
     HttpModule,
+    AppRoutingModule,
     RouterModule
   ],
   providers: [
-    ProdutoService,
-    CarrinhoService,
   ],
   bootstrap: [AppComponent]
 })

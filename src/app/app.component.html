@@ -19,10 +19,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link  active" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Tabela</a>
+                <a class="nav-link" href="/category" [routerLink]= "['category']" >Categoria</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="#">Formulario</a>
@@ -43,7 +43,7 @@
     <div class="col-3">
         <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Link</a>
+              <a class="nav-link" href="#">Link</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
@@ -109,40 +109,10 @@
           </div>
           <button class="btn btn-primary" type="submit">Salvar</button> -->
 
-          <router-outlet></router-outlet>
-        </form>
         
-        <!-- Tabela -->
-        <table class="table table-hover ">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Idade</th>
-              <th scope="col">Sexo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>23</td>
-              <td>Masculino</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>19</td>
-              <td>Masculino</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>23</td>
-              <td>Feminino</td>
-            </tr>
-          </tbody>
-        </table>
+        </form>
+        <router-outlet></router-outlet>
+       
         
       </div>
   </div>
