@@ -1,15 +1,22 @@
   
 <!-- Topo -->
+<header class="w3-display-container w3-content w3-center" style="max-width:1500px">
+  
 <div class="container"> 
   <div class="row">
-    <div class="col-6">
-        <img id="logo" src="assets/logo.png" alt="Logo Icarly" />
+    <div class="col-6" >
+        <img style="margin-right: 200px;" id="logo" src="assets/icons/logo2.0.png" alt="Logo Monkey" />
     </div>
     <div class="col-6">
-        <h1 class="destaque">Icarly</h1>
+        <h1 class="destaque"></h1>
+        <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-container w3-center">
+          <h1 class="w3-hide-medium w3-hide-small w3-xxxlarge">Species Monkey </h1>
+          <h5 class="w3-hide-large" >Monkey </h5>
+        </div>
     </div>
   </div>
 </div>
+</header>
 <!-- Menu -->
 <div class="container">
   
@@ -22,10 +29,10 @@
                 <a class="nav-link  active" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/category" [routerLink]= "['category']" >Categoria</a>
+                <a class="nav-link" [routerLink]= "['category/list']" >Categoria</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="#">Formulario</a>
+                <a class="nav-link "  [routerLink]= "['category/form']" >Formulario</a>
               </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -40,7 +47,7 @@
 <!-- Menu Vertical-->
 <div class="container" id="conteudo-fullscreen">
   <div class="row">
-    <div class="col-3">
+    <div class="col-2">
         <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
@@ -53,66 +60,10 @@
             </li>
           </ul>
     </div>
-    <div class="col-9">
-        <!-- Formulario -->
-        <form class="needs-validation" novalidate>
-          <!-- <div class="row">
-            <div class="col-4 mb-3">
-              <label for="validationTooltip01">Primeiro nome</label>
-              <input type="text" class="form-control" id="validationTooltip01" placeholder="Primeiro nome" required>
-              <div class="valid-tooltip">
-                Parece bom!
-              </div>
-            </div>
-            <div class="col-4 mb-3">
-              <label for="validationTooltip02">Segundo nome</label>
-              <input type="text" class="form-control" id="validationTooltip02" placeholder="Segundo nome" required>
-              <div class="valid-tooltip">
-                Parece bom!
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationTooltipUsername">Username</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                </div>
-                <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
-                <div class="invalid-tooltip">
-                  Porfavor digite um username valido.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="validationTooltip03">Cidade</label>
-              <input type="text" class="form-control" id="validationTooltip03" placeholder="Cidade" required>
-              <div class="invalid-tooltip">
-                Por favor digite uma cidade valida.
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationTooltip04">Logradouro</label>
-              <input type="text" class="form-control" id="validationTooltip04" placeholder="Logradouro" required>
-              <div class="invalid-tooltip">
-                Por favor digite um endereco valido.
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationTooltip05">CEP</label>
-              <input type="text" class="form-control" id="validationTooltip05" placeholder="CEP" required>
-              <div class="invalid-tooltip">
-                Por favor digite um CEP valido.
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-primary" type="submit">Salvar</button> -->
-
-        
-        </form>
+    <div class="col-10">
+      <div class="container">
         <router-outlet></router-outlet>
-       
+      </div>
         
       </div>
   </div>
@@ -124,11 +75,9 @@
   </div>
   <!-- End Conteúdo -->
   <!-- Rodape -->
-  <div class="container text-center bg-dark">
-    <p style="color: white"><b><i> 2018 - Todos direitos reservados</i></b></p>
-  </div>
-  
-  
+  <footer style="margin-top: 20%;" class="w3-center w3-black w3-padding-16">
+      <p style="color: white"><b><i>2018 - Todos direitos reservados</i></b></p>
+</footer>
   
   
   

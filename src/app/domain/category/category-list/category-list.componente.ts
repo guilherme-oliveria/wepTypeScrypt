@@ -3,7 +3,7 @@ import { style } from '@angular/core/src/animation/dsl';
 @Component({
     selector: 'category-list',
     templateUrl: './category-list.componente.html',
-    styleUrls: ['./category-list.compomente.css']
+    styleUrls: ['./category-list.componente.css']
 })
 export class CategoryListComponent implements OnInit {
     constructor(){}
