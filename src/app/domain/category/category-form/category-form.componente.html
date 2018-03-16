@@ -1,48 +1,28 @@
-<div class="panel panel-default">
-<form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-    </div>
+<div style="margin-left: 40px; margin-top: 30px;" >
+
+    <div class="form-group">
+      <div class="row">
+        <div class="form-group col-md-5">
+          <label for="inputEmail4">Nome</label>
+          <input type="text" class="form-control" id="inputEmail4" placeholder="Nome">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputPassword4">Idade</label>
+          <input type="text" class="form-control" id="inputPassword4" placeholder="Idade">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputPassword4">Raça</label>
+            <select class="form-control">
+                <option>Selecione</option>
+                <option>Orangotango</option>
+                <option>Sagui</option>
+                <option>Gorila</option>
+              </select>
+        </div>
+      </div>
+      <div class="row">
+          <button type="submit" class="btn btn-primary col-sm-1 ml-3">Salvar</button>
+          <a class="btn btn-light col-sm-1 ml-1" [routerLink]="['/category/list']"> Voltar</a>
+      </div>
   </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
-</form>
 </div>

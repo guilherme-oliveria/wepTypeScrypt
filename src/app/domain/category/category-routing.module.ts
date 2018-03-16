@@ -8,7 +8,7 @@ import { CategoryViewCompoment } from './category-view/category-view.componente'
 const CategoryRoutes: Routes = [
     {path:'list', component : CategoryListComponent},
     {path:'form', component : CategoryFormComponent},
-    {path: 'view', component: CategoryViewCompoment},
+    {path:'view', component: CategoryViewCompoment},
 ];
 
 @NgModule({
