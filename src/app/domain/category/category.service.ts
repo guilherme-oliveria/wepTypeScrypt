@@ -1,35 +1,46 @@
 import {Category} from './category';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Categoria } from '../../categoria/categoria';
+import { Http, RequestOptions } from '@angular/http';
+import { Options } from 'selenium-webdriver/chrome';
 
 
+
+@Injectable()
 export class CategoryService{
 
-    private categoryList: Category[] = [];
+    public API_URL: string = 'http://localhost:8181/api';
 
-    save(category:Category){
-        this.categoryList.push(category);
-    }
+    private categoryList: Category[]=[];
+    constructor(public http: Http){}
 
-    update(category:Category){
-        let index = this.categoryList.indexOf(category);
-        this.categoryList[index] = category;
-
-    }
-
-    findOne(id:number){
-        return this.categoryList.filter(
-            category => category.id ==id
-        );
-    }
-        
-    findAll(){
-    return this.categoryList;
-}
-    
-    delete(id:number){
-    this.categoryList = this.categoryList.filter(
-        category => category.id != id
-    );
+    findAll(): Observable<Category[]>{
+        return this.http
+            .get('${this.API_URL}/category')
+            .map(res => res.json().content);
 
     }
 
+    delete(id: number):Observable<boolean>{
+        return this.http
+            .delete('${this.API_URL}/category/${id}')
+            .map(res => res.json().content);
+      }  
+
+      save(category: Category): Observable<Category>{
+
+        let headers = new Headers({'Content.type': 'application/json'});
+        let options = new RequestOptions
+
+        if(category.id){
+            return this.http
+            .put('${this.API_URL}/category', JSON.stringify(category), options)
+            .map(res => res.json().content);
+        }else{
+            return this.http
+            .post('${this.API_URL}/category', JSON.stringify(category), options)
+            .map(res => res.json().content);
+        }
+    }
 }
