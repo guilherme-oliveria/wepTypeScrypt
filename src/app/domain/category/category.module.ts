@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 // Component
 
@@ -28,6 +29,9 @@ import {CategoryService} from './category.service';
       HttpModule,
       RouterModule,
       CommonModule,
+
+      FormsModule,
+      ReactiveFormsModule,
 
       // Routing
       CategoryRouting

@@ -1,28 +1,15 @@
 <div style="margin-left: 40px; margin-top: 30px;" >
 
-    <div class="form-group">
+    <div [formGroup]="form">
       <div class="row">
-        <div class="form-group col-md-5">
+        <div class="col-lg-12">
           <label for="inputEmail4">Nome</label>
-          <input type="text" class="form-control" id="inputEmail4" placeholder="Nome">
-        </div>
-        <div class="form-group col-md-4">
-          <label for="inputPassword4">Idade</label>
-          <input type="text" class="form-control" id="inputPassword4" placeholder="Idade">
-        </div>
-        <div class="form-group col-md-3">
-            <label for="inputPassword4">Raça</label>
-            <select class="form-control">
-                <option>Selecione</option>
-                <option>Orangotango</option>
-                <option>Sagui</option>
-                <option>Gorila</option>
-              </select>
+          <input type="text" class="form-control" formControlName="name" placeholder="Nome">
         </div>
       </div>
       <div class="row">
-          <button type="submit" class="btn btn-primary col-sm-1 ml-3">Salvar</button>
-          <a class="btn btn-light col-sm-1 ml-1" [routerLink]="['/category/list']"> Voltar</a>
+          <button (click)="salvar(form.value)">Salvar</button>
+          <button [routerLink="['/category']"> Voltar</button>
       </div>
   </div>
 </div>

@@ -8,6 +8,7 @@ import { CategoryViewCompoment } from './category-view/category-view.componente'
 const CategoryRoutes: Routes = [
     {path:'list', component : CategoryListComponent},
     {path:'form', component : CategoryFormComponent},
+    {path:'form/:id', component : CategoryFormComponent},//alterar
     {path:'view', component: CategoryViewCompoment},
 ];
 
