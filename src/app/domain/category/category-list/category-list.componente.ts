@@ -11,23 +11,21 @@ export class CategoryListComponent implements OnInit {
 
     categories: Category[];
 
-    constructor(
-        private categoryService: CategoryService
-
-    ){}
+    constructor(private categoryService: CategoryService){}
 
     ngOnInit() {
         this.categoryService.findAll()
         .subscribe(categories => {
-            this.categories = categories
+             this.categories = categories
         });
-
     }
+      
+    
 
 
     delete(id:number, index: number){
         this.categoryService.delete(id)
-        .subcribe(response => {
+        .subscribe(response => {
             if(response == true){
                 this.categories.splice(index, 1);
             }

@@ -1,28 +1,19 @@
-<div style="margin-top: 35px;" class=" md-5 mb-5">
+<h2>visualizar</h2>
 
-    <form>
-      <div class="form-group">
-          <div class="row">
-              <div class="form-group col-md-5">
-                <label for="inputEmail4">Nome</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="Nome" readonly>
+   <form>
+      <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationDefault01">id</label>
+                <input type="text" class="form-control" formControlName="id" placeholder="Id" readonly>
               </div>
-              <div class="form-group col-md-4">
-                <label for="inputPassword4">Idade</label>
-                <input type="text" class="form-control" id="inputPassword4" placeholder="Idade" readonly>
+              <div class="col-md-4 mb-3">
+                <label for="validationDefault01">Nome</label>
+                <input type="text" formControlName="name" class="form-control"  placeholder="Nome" readonly>
               </div>
-              <div class="form-group col-md-3">
-                  <label for="inputPassword4">Raça</label>
-                  <select class="form-control disable" readonly>
-                      <option>Sagui</option>
-                    </select>
-              </div>
-            </div>
-      <div class="row">
-          <button type="submit" class="btn btn-primary col-sm-1 ml-3">Alterar</button>
-          <a class="btn btn-light col-sm-1 ml-1" href="category/list">Voltar</a>
       </div>
- 
+      <div class="row">
+          <a class="btn btn-primary " href="category/form/id">Alterar</a>
+          <a class="btn btn-light"  href="category/list">Voltar</a>
+    
     </div>
-    </form>
-  </div>
+</form>

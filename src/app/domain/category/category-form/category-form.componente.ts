@@ -39,7 +39,7 @@ category: Category;
         })
 
         if(category.id != null){
-            this.categoryService.findOne(id)
+            this.categoryService.findOne(category.id)
             .subscribe(category => {
                 this.formCategory.patchValue(category);
             })

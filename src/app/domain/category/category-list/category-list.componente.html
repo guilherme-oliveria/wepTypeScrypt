@@ -1,55 +1,28 @@
 <div class=" mt-5 mb-5">
+  <h2>Tabela</h2>
 <table class="table table-striped table-info">
     <thead>
       <tr>
         <th scope="col"><i class="fa fa-list" aria-hidden="true"></i></th>
-        <th scope="col" >Nome</th>
-        <th scope="col">Idade</th>
-        <th scope="col">Raça</th>
+        <th scope="col" >Id</th>
+        <th scope="col">nome</th>
         <th scope="col">Visualizar </th>
       </tr>
     </thead>
     <tbody >
-      <tr>
-        <th scope="row">1</th>
-        <td [routerLink]= "['category/view']" >Jonathan</td>
-        <td>9 anos </td>
-        <td>Sagui</td>
-        <td><a  aria-hidden="true"></a>
-          <a class="text" href="category/view">
-            <i class="fa fa-search "  style="color:rgb(20, 5, 231)" aria-hidden="true"></i>
-          </a>
-        </td>
-       
+      <tr *ngFor="let category of categories">
+        <th scope="row">{{category.id}}</th>
+        <td>{{category.nome}}</td>
+        <td><a  [routerLink]="['/category/view']"><i class="fa fa-search" aria-hidden="true"></i> </a></td>
+       <td><button (click)="delete(category.id,i)">Excluir</button>
+        <button (click)="alterar(category.id, i)">alterar </button>
+      </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Bruno</td>
-        <td>5 Anos</td>
-        <td>Orangotango</td>
-        <td><a class="" aria-hidden="true"></a>
-          <a class="text" href="category/view">
-            <i class="fa fa-search" style="color:rgb(20, 5, 231)" aria-hidden="true"></i>
-          </a>
-        
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Lohran</td>
-        <td>6 Anos</td>
-        <td>Gorila</td>
-        <td><a class="" aria-hidden="true"></a>
-          <a  class="text" href="category/view">
-            <i class="fa fa-search"  style="color:rgb(20, 5, 231)" aria-hidden="true"></i>
-          </a>
-        <button [routerLink]="['form/',category.id]"> Alterar</button>
-        </td>
-      </tr>
+      
     </tbody>
   </table>
   <div>
-      <a class="btn btn-primary col-sm-1 ml-1" [routerLink]="['/category/form']"> <span>Novo </span></a>
+      <a class="btn btn-primary col-sm-1 ml-1" [routerLink]="['/category/form']" type="submit"> <span>Novo </span></a>
   </div>
  
   </div>
