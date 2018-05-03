@@ -20,9 +20,6 @@ export class CategoryListComponent implements OnInit {
         });
     }
       
-    
-
-
     delete(id:number, index: number){
         this.categoryService.delete(id)
         .subscribe(response => {

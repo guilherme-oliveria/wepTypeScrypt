@@ -12,8 +12,9 @@ import { ActivatedRoute, Params, Router} from '@angular/router';
     styleUrls: ['./category-form.componente.css']
 })
 export class CategoryFormComponent implements OnInit {
-formCategory: FormGroup;
-category: Category;
+
+    formCategory: FormGroup;
+
 
     constructor(
         private router: Router,
@@ -34,9 +35,9 @@ category: Category;
             nome:['',[Validators.required, Validators.maxLength(50)]],
         }, {})
 
-        this.route.params.forEach((params:Params)=>{
-            let id: number =+params['id'];
-        })
+        // this.route.params.forEach((params:Params)=>{
+        //     let id: number =+params['id'];
+        // })
 
         if(category.id != null){
             this.categoryService.findOne(category.id)
@@ -49,13 +50,14 @@ category: Category;
     salvar(category: Category){
 
         if(category.id == null){
-            this.categoryService.save(category).subscribe(data=> {
-                this.router.navigate(['/category/list']);
+            this.categoryService.save(category).subscribe(response => {
+                this.router.navigate(['/category/']);
             })
         }else{
             this.categoryService.update(category).subscribe(
-                () => this.router.navigate(['/category/list'])
-            )
+                response => {
+                    this.router.navigate(['/category/'])
+                })
         }
 
      //     this.categoryService.save(category).subscribe(response =>{

@@ -1,0 +1,29 @@
+<div style="margin-left: 40px; margin-top: 30px;" >
+
+    <form class="form-control" [formGroup]="formCategory">
+   
+          <div class=row>
+            <div class="form-group col-lg-6">
+                <label for="nome">Nome</label>
+                    <input type="text" class="form-control" formControlName="nome" placeholder="Nome" required>
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="descricao">Descrição</label>
+                <input type="text" class="form-control" formControlName="descricao" placeholder="Descrição" required>
+            </div>
+         </div>
+            <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label for="marca">Marca</label>
+                        <input type="text" class="form-control" formControlName="marca" placeholder="Marca" required>
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="preco">Preço</label>
+                        <input type="number" class="form-control" formControlName="preco" placeholder="Preço" required>
+                    </div>
+            </div>
+      
+          <button class="btn btn-primary"  (click)="salvar(form.value)" [disabled]="!form.valid">Salvar</button>
+          <button  class="btn" [routerLink]="['/produto']" type="url"> Voltar</button>
+     </form>
+</div>

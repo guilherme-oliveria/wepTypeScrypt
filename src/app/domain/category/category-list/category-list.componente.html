@@ -1,28 +1,36 @@
 <div class=" mt-5 mb-5">
-  <h2>Tabela</h2>
+  <h2>Categorias</h2>
 <table class="table table-striped table-info">
     <thead>
       <tr>
         <th scope="col"><i class="fa fa-list" aria-hidden="true"></i></th>
         <th scope="col" >Id</th>
-        <th scope="col">nome</th>
-        <th scope="col">Visualizar </th>
+        <th scope="col">Nome</th>
+        <th scope="col">Ações </th>
       </tr>
     </thead>
     <tbody >
-      <tr *ngFor="let category of categories">
+        <tr *ngFor="let category of categories; let i = index">
         <th scope="row">{{category.id}}</th>
         <td>{{category.nome}}</td>
-        <td><a  [routerLink]="['/category/view']"><i class="fa fa-search" aria-hidden="true"></i> </a></td>
-       <td><button (click)="delete(category.id,i)">Excluir</button>
-        <button (click)="alterar(category.id, i)">alterar </button>
+        <td>
+          <a [routerLink]="['/category/view/', category.id]">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn-default" [routerLink]="['/category/form/', category.id]">
+            <i class="fa fa-pencil"></i>
+          </a>
+          <a (click)="delete(category.id, i)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </a>
+        <!-- <button (click)="alterar(category.id, i)">alterar </button> -->
       </td>
       </tr>
       
     </tbody>
   </table>
   <div>
-      <a class="btn btn-primary col-sm-1 ml-1" [routerLink]="['/category/form']" type="submit"> <span>Novo </span></a>
+      <a class="btn btn-primary col-sm-1 ml-1" [routerLink]="['/category/form']" type="url"> <span>Novo </span></a>
   </div>
  
   </div>
