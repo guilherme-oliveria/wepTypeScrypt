@@ -3,12 +3,11 @@ import { Produto } from '../produto';
 import { ProdutoService } from '../produto.service';
 
 @Component({
-    selector: 'produto-list',
-    templateUrl: './produto-list.component.html',
-    styleUrls: ['./produto-list.component.css']
+    selector: 'home-list',
+    templateUrl: './home-list.component.html'
 })
 
-export class ProdutoListCompoment implements OnInit {
+export class HomeListCompoment implements OnInit {
     produtos: Produto[]
 
     constructor(private service: ProdutoService) { }
@@ -29,14 +28,6 @@ export class ProdutoListCompoment implements OnInit {
         });
     }
 
-    delete(id: number, index: number){
-        this.service.delete(id)
-        .subscribe(Response=>{
-            if (Response == true){
-                this.produtos.splice(index, 1)
-            }
-        })
-    }
 
     
 }

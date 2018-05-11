@@ -1,3 +1,6 @@
+import { Subject } from 'rxjs/Subject';
+import { CategoryService } from './../../category/category.service';
+import { Category } from './../../category/category';
 import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../produto.service';
 import { Produto } from '../produto';
@@ -13,20 +16,31 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class ProdutoFormCompoment implements OnInit {
     form: FormGroup;
     produto: Produto;
+    categories: Category[];
 
     constructor(
         private produtoService: ProdutoService,
         private router: Router, 
         private route: ActivatedRoute,
         private builder: FormBuilder,
-
+        public categoryService: CategoryService,
     ) { }
 
     ngOnInit() {
+        this.categoryService.findAll()
+        .subscribe(categories => {
+                this.categories = categories;
+            });
+
+
         //validações de campos
         this.form = this.builder.group({
             id: [],
             nome: ['', [Validators.required]],
+            marca:[],
+            descricao:[],
+            preco:[],
+            category:[]
         }, {})
 
         let produto: Produto = new Produto();

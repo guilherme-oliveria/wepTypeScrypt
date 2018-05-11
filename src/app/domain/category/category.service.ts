@@ -9,8 +9,9 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class CategoryService{
 
-    public API_URL: string = 'http://localhost:8181/api';
+    public API_URL: string = 'http://127.0.0.1:8181/api';
 
+    private categoryList: Category[] = [];
     constructor(public http: Http){}
 
     findAll(): Observable<Category[]>{
@@ -19,7 +20,7 @@ export class CategoryService{
             .map(res => res.json().content);
     }
 
-    findOne(id:number): Observable<any>{
+    findOne(id:number): Observable<Category[]>{
         return this.http
         .get(`${this.API_URL}/category/${id}`)
         .map(res => res.json().content);
@@ -31,7 +32,7 @@ export class CategoryService{
             .map(res => res.json().content);
     }  
 
-    save(category: Category): Observable<any>{
+    save(category: Category): Observable<Category[]>{
 
         let headers = new Headers({'Content-type': 'application/json'});
         let options = new RequestOptions({headers: headers})
@@ -47,12 +48,12 @@ export class CategoryService{
         }
     }
    
-    update(category: Category){
+    update(category: Category): Observable<Category[]>{
         let headers = new Headers({'Content-Type':'application/json'})
         let options = new RequestOptions({headers: headers})
 
         const body = JSON.stringify(category);
         return this.http.put(`${this.API_URL}/category/${category.id}`,body, options)
-        .map(response => response.json());
+        .map(response => response.json().content);
     }
 }

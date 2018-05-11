@@ -1,3 +1,4 @@
+import { CategoryService } from './../category/category.service';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpModule} from '@angular/http';
@@ -6,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 // Component
 import { ProdutoListCompoment } from './produto-list/produto-list.component';
 import { ProdutoFormCompoment } from './produto-form/produto-form.component';
+import { HomeListCompoment } from './home/home-list.component';
 
 //routing 
 import {ProdutoRouting} from './produto-routing.module';
@@ -18,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     declarations: [
         //Componentes
         ProdutoListCompoment,
-        ProdutoFormCompoment
+        ProdutoFormCompoment,
+        HomeListCompoment
 
     ],
     imports: [
@@ -37,7 +40,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     
     providers: [
       // services
-      ProdutoService
+      ProdutoService,
+      CategoryService
     ]
   })
   export class ProdutoModule { }

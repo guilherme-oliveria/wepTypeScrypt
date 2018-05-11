@@ -1,6 +1,6 @@
 <div style="margin-left: 40px; margin-top: 30px;" >
 
-    <form class="form-control" [formGroup]="formCategory">
+    <form class="form-control" [formGroup]="form">
    
           <div class=row>
             <div class="form-group col-lg-6">
@@ -13,17 +13,23 @@
             </div>
          </div>
             <div class="row">
-                    <div class="form-group col-lg-6">
+                    <div class="form-group col-lg-4">
                         <label for="marca">Marca</label>
                         <input type="text" class="form-control" formControlName="marca" placeholder="Marca" required>
                     </div>
-                    <div class="form-group col-lg-6">
+                    <div class="form-group col-lg-4">
                         <label for="preco">Preço</label>
                         <input type="number" class="form-control" formControlName="preco" placeholder="Preço" required>
                     </div>
+                    <div class="form-group col-md-4 mb-3">
+                        <label for="exampleFormSelect">Categoria</label>
+                        <select class="form-control" formControlName="category" [compareWith]="compareFn">
+                            <option *ngFor="let category of categories " [ngValue]="category">{{category.nome}}</option>
+                        </select>
+                    </div>
             </div>
       
-          <button class="btn btn-primary"  (click)="salvar(form.value)" [disabled]="!form.valid">Salvar</button>
+          <button class="btn btn-primary"  (click)="save(form.value)" [disabled]="!form.valid">Salvar</button>
           <button  class="btn" [routerLink]="['/produto']" type="url"> Voltar</button>
      </form>
 </div>

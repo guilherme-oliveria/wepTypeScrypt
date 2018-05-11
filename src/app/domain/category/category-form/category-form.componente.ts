@@ -25,15 +25,17 @@ export class CategoryFormComponent implements OnInit {
     ){}
 
     ngOnInit() {
-
-    let category: Category = new Category();
-    category.id = this.route.snapshot.params['id'];
-
-
+        
         this.formCategory = this.builder.group({
-            id:[],
-            nome:['',[Validators.required, Validators.maxLength(50)]],
+            id: [],
+            nome: ['', [Validators.required]],
         }, {})
+
+        let category: Category = new Category();
+        category.id = this.route.snapshot.params['id'];
+
+
+  
 
         // this.route.params.forEach((params:Params)=>{
         //     let id: number =+params['id'];
@@ -47,16 +49,19 @@ export class CategoryFormComponent implements OnInit {
         }
     }
 
+    compareFn(c1: Category, c2: Category): boolean{
+        return c1 && c2 ? c1.id === c2.id : c1 ===c2;
+    }
     salvar(category: Category){
 
         if(category.id == null){
             this.categoryService.save(category).subscribe(response => {
-                this.router.navigate(['/category/']);
+                this.router.navigate(['/category/list']);
             })
         }else{
             this.categoryService.update(category).subscribe(
                 response => {
-                    this.router.navigate(['/category/'])
+                    this.router.navigate(['/category/list'])
                 })
         }
 

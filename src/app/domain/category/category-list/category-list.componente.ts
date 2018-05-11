@@ -18,6 +18,14 @@ export class CategoryListComponent implements OnInit {
         .subscribe(categories => {
              this.categories = categories
         });
+        // this.categoryService.findAll().subscribe(
+        //     response => {
+        //         this.categories = [];
+        //         response.forEach(element => {
+        //             this.categories.push(element);
+        //         });
+        //     }
+        // );
     }
       
     delete(id:number, index: number){

@@ -12,9 +12,9 @@ export class ProdutoService {
   private produtoList: Produto[] = [];
   constructor(private http: Http) { }
 
-  public API_URL: string = 'http://localhost:8181/api';
+  public API_URL: string = 'http://127.0.0.1:8181/api';
 
-  save(produto: Produto): Observable<any> {
+  save(produto: Produto): Observable<Produto[]> {
 
     let headers = new Headers({ 'Content-Type': 'application/json' })
     let options = new RequestOptions({ headers: headers })
@@ -25,28 +25,25 @@ export class ProdutoService {
       return this.http
           .put(`${this.API_URL}/produto/`, body, options)
           .map(res => res.json().content);
-  } else {
+    } else {
 
-    return this.http.post(`${this.API_URL}/produto/`, body, options)
-      .map(response => response.json().content);
-      
+      return this.http.post(`${this.API_URL}/produto/`, body, options)
+        .map(response => response.json().content);
+        
+    }
   }
 
-
-
-  }
-
-  update(produto: Produto) {
+  update(produto: Produto): Observable<Produto[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' })
     let options = new RequestOptions({ headers: headers })
 
     const body = JSON.stringify(produto);
 
     return this.http.put(`${this.API_URL}/produto/${produto.id}`, body, options)
-      .map(response => response.json());
+      .map(response => response.json().content);
   }
 
-  findOne(id:number): Observable<any>{
+  findOne(id:number): Observable<Produto[]>{
     return this.http
     .get(`${this.API_URL}/produto/${id}`)
     .map(response => response.json().content);
@@ -54,7 +51,7 @@ export class ProdutoService {
 
   findAll(): Observable<Produto[]>{
     return this.http
-      .get(`${this.API_URL}/produto`).map(response => response.json());
+      .get(`${this.API_URL}/produto`).map(response => response.json().content);
 
   }
 
