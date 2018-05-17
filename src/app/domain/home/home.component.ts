@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ProdutoService } from '../produto.service';
-import { Produto } from '../produto';
+import { Produto } from '../produto/produto';
+import { ProdutoService } from '../produto/produto.service';
 
 @Component({
     selector: 'home',
-    templateUrl: './home-list.component.html',
-    styleUrls: ['./home-list.component.css']
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css']
 })
 
-export class HomeListCompoment implements OnInit{
+export class HomeCompoment implements OnInit{
     produto: Produto[];
     constructor(
          public produtoService: ProdutoService,

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 const appRoutes: Routes =[
     { path: '', redirectTo: '/', pathMatch: 'full' },
+    {path:'home', loadChildren: 'app/domain/produto/produto.module#ProdutoModule'},
     {path:'category', loadChildren: 'app/domain/category/category.module#CategoryModule'},
     {path:'produto', loadChildren: 'app/domain/produto/produto.module#ProdutoModule'}
 ];

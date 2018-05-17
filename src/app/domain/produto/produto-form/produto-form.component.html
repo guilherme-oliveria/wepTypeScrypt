@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group col-md-4 mb-3">
                         <label for="exampleFormSelect">Categoria</label>
-                        <select class="form-control" formControlName="category" [compareWith]="compareFn">
+                        <select class="form-control" formControlName="category"> <!-- [compareWith]="compareFn" -->
                             <option *ngFor="let category of categories " [ngValue]="category">{{category.nome}}</option>
                         </select>
                     </div>

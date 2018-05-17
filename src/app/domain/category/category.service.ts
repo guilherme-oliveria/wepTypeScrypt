@@ -20,6 +20,12 @@ export class CategoryService{
             .map(res => res.json().content);
     }
 
+    // findAll() {
+    //     return this.http
+    //       .get(`${this.API_URL}/category`).map(response => response.json().Content);
+    //   }
+    
+
     findOne(id:number): Observable<Category[]>{
         return this.http
         .get(`${this.API_URL}/category/${id}`)

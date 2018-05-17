@@ -18,12 +18,15 @@
           <td>{{produto.marca}}</td>
           <td>{{produto.descricao}}</td>
           <td>{{produto.preco}}</td>
-
-          <!-- <td><a [routerLink]="['/produto/view', produto.id]"><i class="fa fa-search" aria-hidden="true"></i></a></td>
-          <td><button (click)="delete(produto.id, i)">excluir</button>
-          <button [routerLink]="['/produto/form/',category.id]">alterar</button>
-          </td> -->
-          
+          <td>
+            <a [routerLink]="['/produto/view/', produto.id]">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+          <!-- <a class="btn btn-default" [routerLink]="['/produto/form/', produto.id]">
+            <i class="fa fa-pencil"></i>
+           </a> -->
+           <a (click)="delete(produto.id, i)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+        </td> 
         </tr>
     </tbody>
   </table>
