@@ -28,9 +28,9 @@
         <a [routerLink]="['/category/view/', category.id]">
           <i class="fa fa-search" aria-hidden="true"></i>
         </a>
-      <!-- <a class="btn btn-default" [routerLink]="['/produto/form/', produto.id]">
-        <i class="fa fa-pencil"></i>
-       </a> -->
+        <a class="btn btn-default" [routerLink]="['/category/form/', category.id]">
+          <i class="fa fa-pencil"></i>
+         </a>
        <a (click)="delete(category.id, i)"><i class="fa fa-trash" aria-hidden="true"></i></a>
       </td>
       </tr>

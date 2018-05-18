@@ -10,14 +10,24 @@ import { ProdutoService } from '../produto/produto.service';
 
 export class HomeCompoment implements OnInit{
     produto: Produto[];
+    
     constructor(
          public produtoService: ProdutoService,
     ){}
+
     ngOnInit(){
         this.produtoService.findAll()
         .subscribe(produtos => {
           this.produto = produtos;
           console.log(this.produto);
         });
+    }
+
+    incluirProdutoNoCarrinho(produto) {
+        let carrinho = localStorage.getItem("carrinho") ?
+            JSON.parse(localStorage.getItem("carrinho")) :
+            [];
+        carrinho.push(produto);
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
     }
 }

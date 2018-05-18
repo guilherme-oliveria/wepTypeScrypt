@@ -17,7 +17,7 @@ export class CategoryService{
     findAll(): Observable<Category[]>{
         return this.http
             .get(`${this.API_URL}/category`)
-            .map(res => res.json().content);
+            .map(response => response.json().content);
     }
 
     // findAll() {
@@ -29,7 +29,7 @@ export class CategoryService{
     findOne(id:number): Observable<Category[]>{
         return this.http
         .get(`${this.API_URL}/category/${id}`)
-        .map(res => res.json().content);
+        .map(response => response.json().content);
     }
 
     delete(id: number):Observable<boolean>{

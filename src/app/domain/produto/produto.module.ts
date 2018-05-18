@@ -7,7 +7,6 @@ import { RouterModule, Routes } from '@angular/router';
 // Component
 import { ProdutoListCompoment } from './produto-list/produto-list.component';
 import { ProdutoFormCompoment } from './produto-form/produto-form.component';
-import { HomeListCompoment } from './home/home-list.component';
 import { ProdutoViewCompoment } from './produto-view/produto-view.component';
 
 //routing 
@@ -22,7 +21,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         //Componentes
         ProdutoListCompoment,
         ProdutoFormCompoment,
-        HomeListCompoment,
         ProdutoViewCompoment
 
     ],

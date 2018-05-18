@@ -1,20 +1,28 @@
-<div class="row carrinho">
-  <div class="col-4">
-    <img src="../../assets/icons/cart-200.png"/>
-  </div>
-  <div class="col-8">
-      <h3>Meu Carrinho</h3>
 
-      <div *ngIf="produtos" >
-        <span>{{produtos.length}} Produtos</span>
-      </div>
-
-      <div *ngIf="!produtos" >
-        <span>Carrinho Vazio</span>
-      </div>
-
-      
-      
-  </div>
-</div>
-
+    <div class=" mt-5 mb-5">
+        <h2>Carrinho</h2>
+      <table class="table table-striped table-info">
+          <thead>
+            <tr>
+              <th scope="col"><i class="fa fa-list" aria-hidden="true"></i></th>
+              <th scope="col" >Modelo</th>
+              <th scope="col">Preço</th>
+              <th scope="col">Ações </th>
+            </tr>
+          </thead>
+          <tbody >
+              <tr *ngFor="let produto of carrinho; let i = index">
+              <th scope="row">#</th>
+              <th >{{produto.nome}}</th>
+              <td>R$ {{produto.preco}}.00</td>
+              <td>
+                <a (click)="deletar"><i class="fa fa-trash btn btn-primary" aria-hidden="true">Excluir</i></a>
+            </td>
+            </tr>
+            
+          </tbody>
+        </table>
+        <div>
+        </div>
+       
+        </div>

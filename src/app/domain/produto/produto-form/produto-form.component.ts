@@ -72,7 +72,14 @@ export class ProdutoFormCompoment implements OnInit {
         }
 
     }
+    compareFn(c1: Category, c2: Category): boolean{
+        return c1 && c2 ? c1.id === c2.id : c1 ===c2;
+    }
 
+    compararCategoria (c1: Category, c2: Category): boolean{
+        return c1 && c2 ? c1.id === c2.id : c1 === c2;
+    }
+    
      private handleError(err: any): Promise<any> {
         return Promise.reject(err.message || err)
     }

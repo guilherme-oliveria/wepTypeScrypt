@@ -1,14 +1,14 @@
 <h2>visualizar</h2>
 
-   <form>
+   <form [formGroup]="form">
       <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label for="validationDefault01">id</label>
                 <input type="text" class="form-control" formControlName="id" placeholder="Id" readonly>
               </div>
               <div class="col-md-4 mb-3">
-                <label for="validationDefault01">Nome</label>
-                <input type="text" formControlName="name" class="form-control"  placeholder="Nome" readonly>
+                <label for="validationDefault11">Nome</label>
+                <input type="text" formControlName="nome" class="form-control"  placeholder="Nome" readonly>
               </div>
       </div>
       <div class="row">
