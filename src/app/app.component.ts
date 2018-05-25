@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Carrinho } from './domain/carrinho/carrinho';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  tamanho:number = 0;
+
+  constructor(){}
+
+  ngOnInit() {
+    this.aTT();
+  }
+
+  aTT(){
+    let prod = JSON.parse(localStorage.getItem("carrinho")).length ;
+    this.tamanho = prod;
+  }
 }

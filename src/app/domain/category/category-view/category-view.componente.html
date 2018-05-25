@@ -3,17 +3,16 @@
    <form [formGroup]="form">
       <div class="form-row">
               <div class="col-md-4 mb-3">
-                <label for="validationDefault01">id</label>
-                <input type="text" class="form-control" formControlName="id" placeholder="Id" readonly>
-              </div>
-              <div class="col-md-4 mb-3">
                 <label for="validationDefault11">Nome</label>
                 <input type="text" formControlName="nome" class="form-control"  placeholder="Nome" readonly>
               </div>
       </div>
       <div class="row">
-          <a class="btn btn-primary " href="category/form/id">Alterar</a>
-          <a class="btn btn-light"  href="category/list">Voltar</a>
-    
+        <button class="btn btn-primary" [routerLink]="['/category/form/', category.id]">
+          Alterar
+        </button>
+        <button class="btn btn-primary" [routerLink]="['/category/list']">
+          Cancelar
+      </button>
     </div>
 </form>

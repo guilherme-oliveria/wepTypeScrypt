@@ -33,15 +33,16 @@ export class ProdutoService {
     }
   }
 
-  update(produto: Produto): Observable<Produto[]> {
+  update(produto: Produto){
     let headers = new Headers({ 'Content-Type': 'application/json' })
     let options = new RequestOptions({ headers: headers })
 
     const body = JSON.stringify(produto);
 
     return this.http.put(`${this.API_URL}/produto/${produto.id}`, body, options)
-      .map(response => response.json().content);
+      .map(response => response.json());
   }
+
 
   findOne(id:number): Observable<Produto[]>{
     return this.http

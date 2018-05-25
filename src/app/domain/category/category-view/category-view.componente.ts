@@ -23,21 +23,22 @@ export class CategoryViewCompoment implements OnInit{
         private builder: FormBuilder,
     ){}
     ngOnInit(){
-        this.category= new Category();
+        this.category = new Category();
 
-      this.form = this.builder.group({
-          id:[],
-          nome:['', [Validators.required]]
-      },{})
+        this.form = this.builder.group({
+            nome: ['', [Validators.required]]
+        }, {})
 
-      this.form.disable();
-
-      if(this.category.id != null){
-          this.categoryService.findOne(this.category.id)
-          .subscribe(category => {
-              this.form = this.builder.group(category,{});
-          });
-      }
+        
+        this.category = new Category();
+        this.category.id = this.route.snapshot.params['id'];
+        this.form.disable();
+        if (this.category.id) {
+            this.categoryService.findOne(this.category.id)
+                .subscribe(category => {
+                    this.form = this.builder.group(category, {});
+                });
+        }
 
     }
 }

@@ -13,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarrinhoComponent } from './carrinho.component';
 import { ProdutoModule } from '../produto/produto.module';
 import { ProdutoService } from '../produto/produto.service';
-
+import { CarrinhoService } from './carrinho.service';
 
 @NgModule({
   declarations: [
@@ -32,11 +32,12 @@ import { ProdutoService } from '../produto/produto.service';
     //Form
     FormsModule,
     ReactiveFormsModule,
-    ProdutoModule,
+    ProdutoModule
   ],
   providers: [
     // services
-    ProdutoService
+    ProdutoService,
+    CarrinhoService
   ]
 
 })

@@ -1,3 +1,4 @@
+import { AppComponent } from './../../app.component';
 import { Component, OnInit } from '@angular/core';
 
 import {Subscription} from 'rxjs/Subscription';
@@ -12,16 +13,25 @@ export class CarrinhoComponent implements OnInit {
 
   private subscription : Subscription;
 
-  carrinho: Produto[]
-
-   constructor() {}
+  carrinho: any[]
+  tamanho: number =0;
+   constructor(
+    public appComponent: AppComponent,
+  ) {}
 
   ngOnInit() {
 
     this.carrinho = localStorage.getItem("carrinho") ?
-    JSON.parse(localStorage.getItem("carrinho")) :
-    [];
-
+      JSON.parse(localStorage.getItem("carrinho")) :
+      [];
+    this.tamanho = JSON.parse(localStorage.getItem("carrinho")).length; 
   }
   
+  excluirItem(index){
+    this.carrinho .splice(index, 1);
+    localStorage.setItem("carrinho", JSON.stringify(this.carrinho ));
+    this.appComponent.aTT();
+    alert("Deseja excluir?");
+  }
+
 }

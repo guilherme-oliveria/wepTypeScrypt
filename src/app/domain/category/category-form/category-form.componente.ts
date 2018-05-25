@@ -52,20 +52,17 @@ export class CategoryFormComponent implements OnInit {
     
     salvar(category: Category){
 
-        if(category.id == null){
-            this.categoryService.save(category).subscribe(response => {
+        if(category.id == null) {
+            this.categoryService.save(category).subscribe(data => {
                 this.router.navigate(['/category/list']);
+                console.log('ta salvando');
             })
-        }else{
+        } else {
             this.categoryService.update(category).subscribe(
-                response => {
-                    this.router.navigate(['/category/list'])
-                })
+                () => this.router.navigate(['/category/list'])
+            )
         }
 
-     //     this.categoryService.save(category).subscribe(response =>{
-
-     //     }); 
     }
 
     private handleError(err: any): Promise<any>{

@@ -33,10 +33,10 @@
 
     </div>
   </div>
-  <button class="btn btn-primary" (click)="save(form.value)" [disabled]="!form.valid" class="btn btn-primary">
-    Salvar
+  <button class="btn btn-primary"  [routerLink]="['/produto/form/', produto.id]" class="btn btn-primary">
+    Alterar
   </button>
-  <button class="btn btn-primary" [routerLink]="['/produto/list']">
+  <button class="btn" [routerLink]="['/produto/list']">
     Cancelar
 </button>
 </form>

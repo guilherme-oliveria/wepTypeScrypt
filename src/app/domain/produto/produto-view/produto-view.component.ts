@@ -28,38 +28,28 @@ export class ProdutoViewCompoment implements OnInit {
 
     ngOnInit() {
         //validações de campos
-
-        this.produto = new Produto();
-
         this.categoryService.findAll()
         .subscribe(categories => {
-          this.categories = categories;
+            this.categories = categories;
         });
 
+    this.form = this.builder.group({
+        nome: ['', [Validators.required]],
+        marca: ['', [Validators.required]],
+        descricao: ['', [Validators.required]],
+        preco: ['', [Validators.required]],
+        category: this.builder.control('', [Validators.required])
+    }, {})
+    this.produto = new Produto();
+    this.produto.id = this.route.snapshot.params['id'];
+    this.form.disable();
 
-        this.form = this.builder.group({
-            id: [],
-            nome: ['', [Validators.required]],
-            marca:['', [Validators.required]],
-            descricao:['', [Validators.required]],
-            preco:['', [Validators.required]],
-            category:this.builder.control('', [Validators.required])
-        }, {})
-        
-
-        
-
-        // produto = this.route.snapshot.params['id'];
-
-        this.form.disable();
-
-        if (this.produto.id != null){
-            this.produtoService.findOne(this.produto.id)
+    if (this.produto.id) {
+        this.produtoService.findOne(this.produto.id)
             .subscribe(produto => {
                 this.form = this.builder.group(produto, {});
             });
-        }
-
+    }
 
 }
 

@@ -1,3 +1,4 @@
+import { AppComponent } from './../../app.component';
 import { Component, OnInit } from '@angular/core';
 import { Produto } from '../produto/produto';
 import { ProdutoService } from '../produto/produto.service';
@@ -13,6 +14,7 @@ export class HomeCompoment implements OnInit{
     
     constructor(
          public produtoService: ProdutoService,
+         public appComponent: AppComponent,
     ){}
 
     ngOnInit(){
@@ -29,5 +31,6 @@ export class HomeCompoment implements OnInit{
             [];
         carrinho.push(produto);
         localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        this.appComponent.aTT();
     }
 }
