@@ -16,9 +16,10 @@ export class CarrinhoService {
     private carrinhoSubject = new Subject<Carrinho>();
     produtos: Produto[] = [];
     carrinho = this.carrinhoSubject.asObservable();
-    
-    
-    constructor(public http : Http){}
+
+
+    constructor(public http : Http
+    ){}
 
     adicionarProduto(produto: Produto){
         this.produtos.push(produto);
@@ -30,6 +31,8 @@ export class CarrinhoService {
        this.produtos =  this.produtos.filter(  produto => produto.id !== id);
        this.carrinhoSubject.next(<Carrinho>{ativo: true , produtos:  this.produtos});
     }
-
+    calculaQuadrado(num: number,num2:number) {
+       return num * num2;
+   }
 
 }
