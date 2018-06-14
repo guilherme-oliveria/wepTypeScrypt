@@ -17,8 +17,7 @@ export class CarrinhoComponent implements OnInit {
 
   carrinho: any[]
   valorTotal: number=0;
-  tamanho: number =0;
-  carrinhoNew:Carrinho;
+  total:number=0;
   private carrinhoService:CarrinhoService;
 
    constructor(
@@ -28,28 +27,28 @@ export class CarrinhoComponent implements OnInit {
 
   ngOnInit() {
 
-    this.carrinho = localStorage.getItem("carrinho") ?
-      JSON.parse(localStorage.getItem("carrinho")) :
+    this.carrinho = localStorage.getItem("produtos") ?
+      JSON.parse(localStorage.getItem("produtos")) :
       [];
-    this.tamanho = JSON.parse(localStorage.getItem("carrinho")).length;
-
   }
 
   excluirItem(index){
     this.carrinho.splice(index, 1);
-    localStorage.setItem("carrinho", JSON.stringify(this.carrinho ));
+    localStorage.setItem("produtos", JSON.stringify(this.carrinho ));
     this.appComponent.aTT();
     alert("Deseja excluir?");
     location.reload();
   }
 
+  
   //   getCalc(num, num2) {
   //     return this.carrinhoService.calculaQuadrado(num,num2);
   // }
 
-  getCalc(num) {
-    this.valorTotal = this.tamanho *num;
-    return this.tamanho *num;
-}
+  getCalc(num, num2) {
+    this.total = num2 *num;
+    this.valorTotal = this.total;
+    return num2 *num;
+  }
 
 }

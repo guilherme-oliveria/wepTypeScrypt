@@ -24,7 +24,7 @@ export class CarrinhoService {
     adicionarProduto(produto: Produto){
         this.produtos.push(produto);
         this.carrinhoSubject.next(<Carrinho>{ativo: true , produtos:  this.produtos});
-        localStorage.setItem("carrinho", JSON.stringify( this.produtos));
+        localStorage.setItem("produtos", JSON.stringify( this.produtos));
     }
 
     removerProduto(id: number){

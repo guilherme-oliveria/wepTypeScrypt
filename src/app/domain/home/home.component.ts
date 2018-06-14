@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Produto } from '../produto/produto';
 import { ProdutoService } from '../produto/produto.service';
 
+import { Subject } from 'rxjs/Subject';
+
 @Component({
     selector: 'home',
     templateUrl: './home.component.html',
@@ -11,7 +13,8 @@ import { ProdutoService } from '../produto/produto.service';
 
 export class HomeCompoment implements OnInit{
     produto: Produto[];
-    
+    dtTrigger: Subject<Produto> = new Subject();
+
     constructor(
          public produtoService: ProdutoService,
          public appComponent: AppComponent,
@@ -26,11 +29,32 @@ export class HomeCompoment implements OnInit{
     }
 
     incluirProdutoNoCarrinho(produto) {
-        let carrinho = localStorage.getItem("carrinho") ?
-            JSON.parse(localStorage.getItem("carrinho")) :
+        let produtos = localStorage.getItem("produtos") ?
+            JSON.parse(localStorage.getItem("produtos")) :
             [];
-        carrinho.push(produto);
-        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+            let item = {
+                produto: produto,
+                index: produtos.length + 1,
+                quantidade: 1
+              }
+              var teste = true;
+
+              for (let i = 0; i < produtos.length; i++) {
+                if (produtos[i].produto.id == item.produto.id) {
+                  produtos[i].produto.preco =  item.produto.preco;
+                  produtos[i].quantidade = produtos[i].quantidade + 1;
+                  localStorage.setItem("produtos", JSON.stringify(produtos));
+                  teste = false;
+                }
+              }
+
+              if (teste) {
+                produtos.push(item);
+              }
+              
+
+        localStorage.setItem("produtos", JSON.stringify(produtos));
         this.appComponent.aTT();
     }
 }

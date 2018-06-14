@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   aTT(){
-    let prod = JSON.parse(localStorage.getItem("carrinho")).length ;
+    let prod = JSON.parse(localStorage.getItem("produtos")).length ;
     this.tamanho = prod;
   }
 }

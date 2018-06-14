@@ -9,17 +9,35 @@
               <th scope="col" >Modelo</th>
               <th scope="col">Preço</th>
               <th scope="col">Quantidade</th>
-              <th scope="col">Valor Total</th>
+              <th scope="col">Total</th>
               <th scope="col">Ações </th>
             </tr>
           </thead>
           <tbody >
-            <tr *ngFor="let produto of carrinho; let i = index ">
+            <tr *ngFor="let p of carrinho; let i = index ">
                 <td scope="row">#</td>
-                <td >{{produto.nome}}</td>
-                <td id="valorProdutos" class="idValor">{{produto.preco}}</td>
-                <td id="Quant" class="idQtd">  {{tamanho}}</td>
-                <td id="Quant" class="idQtd">  {{getCalc(produto.preco)}}</td>
+                <td >{{p.produto.nome}}</td>
+                <td id="valorProdutos" class="idValor">{{p.produto.preco}}</td>
+                <td id="Quant">  {{p.quantidade}}
+                    <div style="width:100%; margin:3px; overflow:hidden;">
+    
+                    <div style="float:left; padding:20px 10px 20px 0; ">
+                      <form name="form_carrinho_quantidade_90139"  action="atualizar.cgi">
+        
+                    <input name="produto_quantidade" type="text" id="produto_quantidade" size="2" style="width:25px; text-align:center;" value="1">
+            
+                    <input type="hidden" name="item_quantidade" >
+    
+                    </form></div>
+        
+                    <div style="padding:15px 0 5px 0;"><img  width="12" height="14"> <a href="#" >Adicionar</a></div>
+            
+                    <div style="padding:5px 0 5px 0;"><a  data-id="90139"><img  width="12" height="12" border="0"> Excluir</a></div>
+                    </div>
+                
+
+                </td>
+                <td id="Quant">  {{getCalc(p.produto.preco,p.quantidade)}}</td>
                 <td>
                   <a (click)="excluirItem(i)"><i class="fa fa-trash btn btn-primary" aria-hidden="true">Excluir</i></a>
                 </td>

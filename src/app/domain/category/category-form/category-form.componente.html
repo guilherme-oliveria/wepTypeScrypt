@@ -7,9 +7,10 @@
           <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
         </div>
       </div>
+    <div style="margin-top: 5px;" >
           <button class="btn btn-primary"  (click)="salvar(formCategory.value)" [disabled]="!form.valid">Salvar</button>
           <button  class="btn"  [routerLink]="['/category/list']"> Voltar</button>
-    
+    </div>
     </form>
 
 </div>
