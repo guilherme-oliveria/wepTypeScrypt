@@ -14,30 +14,29 @@
             </tr>
           </thead>
           <tbody >
-            <tr *ngFor="let p of carrinho; let i = index ">
+            <tr *ngFor="let p of produtos; let i = index ">
                 <td scope="row">#</td>
                 <td >{{p.produto.nome}}</td>
-                <td id="valorProdutos" class="idValor">{{p.produto.preco}}</td>
-                <td id="Quant">  {{p.quantidade}}
-                    <div style="width:100%; margin:3px; overflow:hidden;">
+                <td id="valorProdutos" class="idValor">{{p.valorUnitario}}</td>
+                <td id="Quant"> {{getTam(p.quantidade)}}
+                    <div style="width:100%; margin-top:-18px; overflow:hidden;">
     
                     <div style="float:left; padding:20px 10px 20px 0; ">
-                      <form name="form_carrinho_quantidade_90139"  action="atualizar.cgi">
+                    <form name="form_carrinho_quantidade_90139"  action="atualizar.cgi">
         
-                    <input name="produto_quantidade" type="text" id="produto_quantidade" size="2" style="width:25px; text-align:center;" value="1">
+                    <input name="produto_quantidade" type="text" id="produto_quantidade" [(ngModel)]="tamanho" size="2" style="width:25px; text-align:center;" value="1">
             
                     <input type="hidden" name="item_quantidade" >
     
-                    </form></div>
+                    </form>
+                  </div>
         
-                    <div style="padding:15px 0 5px 0;"><img  width="12" height="14"> <a href="#" >Adicionar</a></div>
+                    <div style="padding:10px 0 5px 0; margin-top:5px;"><a  (click)="atualizandoItem(p.produto, 1)"><i class="fa fa-plus " aria-hidden="true"></i></a></div>
             
-                    <div style="padding:5px 0 5px 0;"><a  data-id="90139"><img  width="12" height="12" border="0"> Excluir</a></div>
-                    </div>
-                
-
+                    <div style="padding:5px 0 5px 0;margin-top:-5px;"><a (click)="atualizandoItem(p.produto, 0)"><i class="fa fa-minus" aria-hidden="true"></i> </a></div>
+                  </div>
                 </td>
-                <td id="Quant">  {{getCalc(p.produto.preco,p.quantidade)}}</td>
+                <td id="Quant">  {{p.produto.preco}}</td>
                 <td>
                   <a (click)="excluirItem(i)"><i class="fa fa-trash btn btn-primary" aria-hidden="true">Excluir</i></a>
                 </td>

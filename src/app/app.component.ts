@@ -13,11 +13,21 @@ export class AppComponent {
   constructor(){}
 
   ngOnInit() {
-    this.aTT();
-  }
-
-  aTT(){
+    this.atualizaNumero();
     let prod = JSON.parse(localStorage.getItem("produtos")).length ;
     this.tamanho = prod;
+  }
+  atualizaNumero(){
+    let produtos = localStorage.getItem("produtos") ?
+      JSON.parse(localStorage.getItem("produtos")) :
+      [];
+
+    let quantidadeDeProdutos = 0;
+
+    for (let i = 0; i < produtos.length; i++) {
+      quantidadeDeProdutos = quantidadeDeProdutos + produtos[i].quantidade; 
+    }
+
+    this.tamanho = quantidadeDeProdutos;
   }
 }

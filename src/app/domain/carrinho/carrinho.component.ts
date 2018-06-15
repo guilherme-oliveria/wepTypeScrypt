@@ -14,9 +14,10 @@ import { Carrinho } from "./carrinho";
 export class CarrinhoComponent implements OnInit {
 
   private subscription : Subscription;
-
-  carrinho: any[]
+  produto:Produto;
+  produtos: any[];
   valorTotal: number=0;
+  tamanho:number=0;
   total:number=0;
   private carrinhoService:CarrinhoService;
 
@@ -27,28 +28,67 @@ export class CarrinhoComponent implements OnInit {
 
   ngOnInit() {
 
-    this.carrinho = localStorage.getItem("produtos") ?
+      this.precoTotal();
+      this.produtos = localStorage.getItem("produtos") ?
       JSON.parse(localStorage.getItem("produtos")) :
       [];
   }
 
   excluirItem(index){
-    this.carrinho.splice(index, 1);
-    localStorage.setItem("produtos", JSON.stringify(this.carrinho ));
-    this.appComponent.aTT();
+    this.produtos.splice(index, 1);
+    localStorage.setItem("produtos", JSON.stringify(this.produtos ));
+    this.appComponent.atualizaNumero();
     alert("Deseja excluir?");
     location.reload();
   }
 
-  
+
+  getTam(num2){
+    this.tamanho =num2;
+  }
   //   getCalc(num, num2) {
   //     return this.carrinhoService.calculaQuadrado(num,num2);
   // }
 
-  getCalc(num, num2) {
-    this.total = num2 *num;
-    this.valorTotal = this.total;
-    return num2 *num;
+  atualizandoItem(produto, valor) {
+    let produtos = localStorage.getItem("produtos") ?
+      JSON.parse(localStorage.getItem("produtos")) :
+      [];
+
+    for (let i = 0; i < produtos.length; i++) {
+      if (produtos[i].produto.id == produto.id) {
+        if (produtos[i].quantidade > 1 || valor == 1) {
+          if (valor == 0) {
+            produtos[i].produto.preco = produtos[i].produto.preco - (produtos[i].produto.preco / produtos[i].quantidade);
+            produtos[i].quantidade = produtos[i].quantidade - 1;
+          } else {
+            produtos[i].produto.preco = produtos[i].produto.preco + (produtos[i].produto.preco / produtos[i].quantidade);
+            produtos[i].quantidade = produtos[i].quantidade + 1;
+          }
+          localStorage.setItem("produtos", JSON.stringify(produtos));
+        } else {
+          break;
+        }
+      }
+    }
+    this.appComponent.atualizaNumero();
+    this.precoTotal();
+    location.reload();
   }
+
+  precoTotal() {
+    let produtos = localStorage.getItem("produtos") ?
+      JSON.parse(localStorage.getItem("produtos")) :
+      [];
+
+    let valorTotalAux = 0;
+
+    for (let i = 0; i < produtos.length; i++) {
+      valorTotalAux = valorTotalAux + produtos[i].produto.preco;
+    }
+
+    this.valorTotal = valorTotalAux;
+  }
+
 
 }
