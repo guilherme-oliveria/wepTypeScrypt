@@ -61,6 +61,11 @@ export class ProdutoService {
       .get(`${this.API_URL}/produto/promocao`).map(response => response.json().content);
   }
 
+  findSemPromocoes():Observable<Produto[]>{
+    return this.http
+      .get(`${this.API_URL}/produto/semPromocao`).map(response => response.json().content);
+  }
+
   delete(id: number): Observable<boolean> {
     return this.http
       .delete(`${this.API_URL}/produto/${id}`)

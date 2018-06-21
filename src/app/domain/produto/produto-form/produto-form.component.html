@@ -31,7 +31,7 @@
             <div class="row">
               <div class="fieldcontain col-lg-3">
                       <label for=ativoApp>
-                      Ativar promocao
+                      Ativar promoção
                       </label>
                       <div class="switch-toggle switch-candy large-3">
                         <div   class="switch-toggle switch-candy large-3">
@@ -43,16 +43,16 @@
                       </div>
                 </div>
               <div id="divPromocao" class="form-group col-lg-4">
-                  <label for="precoPromocao">Preço de Promocao</label>
-                  <input type="number" class="form-control " formControlName="precoPromocao" placeholder="precoPromocao" required>
+                  <label for="precoPromocao">Preço de Promoção</label>
+                  <input type="number" class="form-control " formControlName="precoPromocao" placeholder="precoPromocao" >
               </div>
             </div>
 
           <button class="btn btn-primary"  (click)="save(form.value)" [disabled]="!form.valid">Salvar</button>
-          <button  class="btn" [routerLink]="['/produto']" type="url"> Voltar</button>
+          <button  class="btn" [routerLink]="['/produto/list']" type="url"> Voltar</button>
      </form>
 </div>
-<pre> {{form.value | json}}</pre>
+<!-- <pre> {{form.value | json}}</pre> -->
 <script>
     $(function(){
             $(".esconde").click(function(e){

@@ -56,7 +56,7 @@ export class CarrinhoComponent implements OnInit {
       [];
 
     for (let i = 0; i < produtos.length; i++) {
-      if (produtos[i].produto.id == produto.id) {
+      if (produtos[i].produto.id === produto.id) {
         if (produtos[i].quantidade > 1 || valor == 1) {
           if (valor == 0) {
             produtos[i].produto.preco = produtos[i].produto.preco - (produtos[i].produto.preco / produtos[i].quantidade);

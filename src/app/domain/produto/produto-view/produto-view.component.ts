@@ -19,7 +19,7 @@ export class ProdutoViewCompoment implements OnInit {
 
     constructor(
         private produtoService: ProdutoService,
-        private router: Router, 
+        private router: Router,
         private route: ActivatedRoute,
         private builder: FormBuilder,
         public categoryService: CategoryService,
@@ -38,6 +38,8 @@ export class ProdutoViewCompoment implements OnInit {
         marca: ['', [Validators.required]],
         descricao: ['', [Validators.required]],
         preco: ['', [Validators.required]],
+        precoPromocao:[''],
+        ativarPromocao:['',[Validators.required]],
         category: this.builder.control('', [Validators.required])
     }, {})
     this.produto = new Produto();
@@ -61,4 +63,3 @@ compararCategoria (c1: Category, c2: Category): boolean{
 }
 
 }
-

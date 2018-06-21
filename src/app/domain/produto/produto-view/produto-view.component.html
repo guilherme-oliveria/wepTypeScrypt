@@ -4,16 +4,16 @@
     <div class="col-md-4 mb-3">
       <label for="validationDefault01">Nome</label>
       <input type="text" formControlName="nome" disabled="" class="form-control"ng  placeholder="nome" required>
-    
+
     </div>
     <div class="col-md-4 mb-3">
         <label for="validationDefault01">Marca</label>
         <input type="text" formControlName="marca" disabled="" class="form-control" placeholder="marca" required>
-      
+
       </div>
     <div class="col-md-4 mb-3">
       <label for="validationDefault01">Descrição</label>
-      <input type="text" formControlName="descricao" disabled="" class="form-control" placeholder="descrição" required>      
+      <input type="text" formControlName="descricao" disabled="" class="form-control" placeholder="descrição" required>
     </div>
   </div>
   <div class="form-row">
@@ -22,7 +22,7 @@
         <label for="validationDefault01">Valor</label>
         <input type="text" formControlName="preco" disabled="" class="form-control" placeholder="preco" required>
       </div>
-      
+
     <div class="form-group col-md-4 mb-3">
 
       <label for="exampleFormControlSelect1">Categoria</label>
@@ -31,6 +31,25 @@
         <option *ngFor="let category of categories" [ngValue]="category">{{category.nome}}</option>
       </select>
 
+    </div>
+  </div>
+  <div class="row">
+    <div class="fieldcontain col-lg-3">
+            <label for=ativoApp>
+            Ativar promocao
+            </label>
+            <div class="switch-toggle switch-candy large-3">
+              <div   class="switch-toggle switch-candy large-3">
+                <input data-element="#divPromocao"  value="true" name="ativo" formControlName="ativarPromocao"  type="radio" />
+                  <span><label onclick="" for="ativo">Sim</label></span>
+                <input  name="ativo" value="false"  type="radio" formControlName="ativarPromocao"/>
+                  <label onclick="" for="ativo">Não</label>
+              </div>
+            </div>
+      </div>
+    <div id="divPromocao" class="form-group col-lg-4">
+        <label for="precoPromocao">Preço de Promocao</label>
+        <input type="number" class="form-control " formControlName="precoPromocao" placeholder="precoPromocao" required>
     </div>
   </div>
   <button class="btn btn-primary"  [routerLink]="['/produto/form/', produto.id]" class="btn btn-primary">
@@ -42,4 +61,3 @@
 </form>
 
 <pre> {{form.value | json}}</pre>
-

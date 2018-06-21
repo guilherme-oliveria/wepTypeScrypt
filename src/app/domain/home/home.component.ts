@@ -22,7 +22,7 @@ export class HomeCompoment implements OnInit{
     ){}
 
     ngOnInit(){
-        this.produtoService.findAll()
+        this.produtoService.findSemPromocoes()
         .subscribe(produtos => {
           this.produto = produtos;
           console.log(this.produto);
