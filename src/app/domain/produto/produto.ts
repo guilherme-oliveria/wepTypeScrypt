@@ -5,6 +5,10 @@ export class Produto{
     nome: string;
     marca: string;
     preco: number;
+    precoPromocao: number;
+    ativarPromocao:boolean = false;
     descricao:string;
-    category: Category; 
+    category: Category;
+
+
 }

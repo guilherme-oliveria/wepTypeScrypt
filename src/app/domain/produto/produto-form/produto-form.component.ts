@@ -20,7 +20,7 @@ export class ProdutoFormCompoment implements OnInit {
 
     constructor(
         private produtoService: ProdutoService,
-        private router: Router, 
+        private router: Router,
         private route: ActivatedRoute,
         private builder: FormBuilder,
         public categoryService: CategoryService,
@@ -40,6 +40,8 @@ export class ProdutoFormCompoment implements OnInit {
             marca: ['', [Validators.required]],
             descricao: ['', [Validators.required]],
             preco: ['', [Validators.required]],
+            precoPromocao:[''],
+            ativarPromocao:['',[Validators.required]],
             category: this.builder.control('', [Validators.required]),
         }, {})
         this.produto = new Produto();
@@ -52,7 +54,7 @@ export class ProdutoFormCompoment implements OnInit {
                 });
         }
 
-   
+
 }
 // Salva a produto e retorna a lista de produtos
     save(produto: Produto) {
@@ -71,7 +73,7 @@ export class ProdutoFormCompoment implements OnInit {
     compararCategoria (c1: Category, c2: Category): boolean{
         return c1 && c2 ? c1.id === c2.id : c1 === c2;
     }
-    
+
      private handleError(err: any): Promise<any> {
         return Promise.reject(err.message || err)
     }

@@ -20,7 +20,7 @@ export class ProdutoService {
     let options = new RequestOptions({ headers: headers })
 
     const body = JSON.stringify(produto);
-    
+
     if(produto.id){
       return this.http
           .put(`${this.API_URL}/produto/`, body, options)
@@ -29,7 +29,7 @@ export class ProdutoService {
 
       return this.http.post(`${this.API_URL}/produto/`, body, options)
         .map(response => response.json().content);
-        
+
     }
   }
 
@@ -54,6 +54,11 @@ export class ProdutoService {
     return this.http
       .get(`${this.API_URL}/produto`).map(response => response.json().content);
 
+  }
+
+  findPromocoes():Observable<Produto[]>{
+    return this.http
+      .get(`${this.API_URL}/produto/promocao`).map(response => response.json().content);
   }
 
   delete(id: number): Observable<boolean> {

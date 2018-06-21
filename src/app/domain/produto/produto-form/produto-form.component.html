@@ -1,7 +1,7 @@
 <div style="margin-left: 40px; margin-top: 30px;" >
 
     <form class="form-control" [formGroup]="form">
-   
+
           <div class=row>
             <div class="form-group col-lg-6">
                 <label for="nome">Nome</label>
@@ -28,9 +28,37 @@
                         </select>
                     </div>
             </div>
-      
+            <div class="row">
+              <div class="fieldcontain col-lg-3">
+                      <label for=ativoApp>
+                      Ativar promocao
+                      </label>
+                      <div class="switch-toggle switch-candy large-3">
+                        <div   class="switch-toggle switch-candy large-3">
+                          <input data-element="#divPromocao"  value="true" name="ativo" formControlName="ativarPromocao"  type="radio" />
+                            <label onclick="" for="ativo">Sim</label>
+                          <input  name="ativo" value="false"  type="radio" formControlName="ativarPromocao"/>
+                            <label onclick="" for="ativo">Não</label>
+                        </div>
+                      </div>
+                </div>
+              <div id="divPromocao" class="form-group col-lg-4">
+                  <label for="precoPromocao">Preço de Promocao</label>
+                  <input type="number" class="form-control " formControlName="precoPromocao" placeholder="precoPromocao" required>
+              </div>
+            </div>
+
           <button class="btn btn-primary"  (click)="save(form.value)" [disabled]="!form.valid">Salvar</button>
           <button  class="btn" [routerLink]="['/produto']" type="url"> Voltar</button>
      </form>
 </div>
 <pre> {{form.value | json}}</pre>
+<script>
+    $(function(){
+            $(".esconde").click(function(e){
+                e.preventDefault();
+                el = $(this).data('element');
+                $(el).toggle();
+            });
+        });
+</script>

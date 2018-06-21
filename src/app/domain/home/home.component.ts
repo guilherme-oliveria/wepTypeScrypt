@@ -13,6 +13,7 @@ import { Subject } from 'rxjs/Subject';
 
 export class HomeCompoment implements OnInit{
     produto: Produto[];
+    produtoPromocao: Produto[];
     dtTrigger: Subject<Produto> = new Subject();
 
     constructor(
@@ -25,6 +26,12 @@ export class HomeCompoment implements OnInit{
         .subscribe(produtos => {
           this.produto = produtos;
           console.log(this.produto);
+        });
+
+        this.produtoService.findPromocoes()
+        .subscribe(produtos => {
+          this.produtoPromocao = produtos;
+          console.log(this.produtoPromocao);
         });
     }
 
@@ -54,7 +61,7 @@ export class HomeCompoment implements OnInit{
               if (teste) {
                 produtos.push(item);
               }
-              
+
 
         localStorage.setItem("produtos", JSON.stringify(produtos));
         this.appComponent.atualizaNumero();

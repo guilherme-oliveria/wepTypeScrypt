@@ -1,14 +1,36 @@
-<div class="mb-5 row">
-    <div class="col-md-4 mt-2" *ngFor="let produto of produto">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSPTzcCPb-FxG52ggrOzzs8XrD2qewgitGhOM1Wd46r8bJ3n30Ug" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title"><b>Modelo:</b> {{produto.nome}}</h5>
-                <p class="card-text">{{produto.descricao}}</p>
+<div class="formGroup">
+  <div class=" row">
+      <div class="col-md-4 mt-2" *ngFor="let pro of produtoPromocao">
+        <h3>Produtos na promocao</h3>
+          <div class="card-deck" style="width: 18rem;">
+            <div class="card">
+              <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSPTzcCPb-FxG52ggrOzzs8XrD2qewgitGhOM1Wd46r8bJ3n30Ug" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><b>Modelo: </b> {{pro.nome}}</h5>
+                <p class="card-text">{{pro.descricao}}</p>
+                <p class="card-text"><b>Preco anterior: R$</b>{{pro.preco}}.00</p>
                 <h4 class="card-text">
-                    <b>R$ {{produto.preco}}.00</b>
+                    <b>R$ {{pro.precoPromocao}}.00</b>
                 </h4>
-                <a (click)="incluirProdutoNoCarrinho(produto)" class="btn btn-primary">Comprar</a>
+                <a (click)="incluirProdutoNoCarrinho(pro)" class="btn btn-primary">Comprar</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class=" row">
+        <h3>Produtos</h3>
+        <div class="col-md-4 mt-2" *ngFor="let produto of produto">
+            <div class="card-deck" style="width: 18rem;">
+                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSPTzcCPb-FxG52ggrOzzs8XrD2qewgitGhOM1Wd46r8bJ3n30Ug" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Modelo:</b> {{produto.nome}}</h5>
+                    <p class="card-text">{{produto.descricao}}</p>
+                    <h4 class="card-text">
+                        <b>R$ {{produto.preco}}.00</b>
+                    </h4>
+                    <a (click)="incluirProdutoNoCarrinho(produto)" class="btn btn-primary">Comprar</a>
+                </div>
             </div>
         </div>
     </div>
