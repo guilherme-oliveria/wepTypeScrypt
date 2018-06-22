@@ -50,23 +50,36 @@ export class CarrinhoComponent implements OnInit {
   //     return this.carrinhoService.calculaQuadrado(num,num2);
   // }
 
-  atualizandoItem(produto, valor) {
+  atualizandoItem(produto, valor,quantidade) {
     let produtos = localStorage.getItem("produtos") ?
       JSON.parse(localStorage.getItem("produtos")) :
       [];
 
-    for (let i = 0; i < produtos.length; i++) {
-      if (produtos[i].produto.id === produto.id) {
+    for (let i = 0; i < produtos.length ; i++) {
+      if (produtos[i].produto.id == produto.id) {
         if (produtos[i].quantidade > 1 || valor == 1) {
-          if (valor == 0) {
-            produtos[i].produto.preco = produtos[i].produto.preco - (produtos[i].produto.preco / produtos[i].quantidade);
+          if (valor == 0) {//remover
+            if(produtos[i].produto.precoPromocao >0){ // possui promocao
+              produtos[i].produto.preco = (produtos[i].produto.precoPromocao * produtos[i].quantidade);
+              produtos[i].valorUnitario = produtos[i].produto.precoPromocao ;
+            }else{// sem promocao
+              produtos[i].produto.preco =produtos[i].produto.preco *produtos[i].quantidade ;
+              produtos[i].valorUnitario = produtos[i].produto.preco ;
+            }
             produtos[i].quantidade = produtos[i].quantidade - 1;
-          } else {
-            produtos[i].produto.preco = produtos[i].produto.preco + (produtos[i].produto.preco / produtos[i].quantidade);
+          } else {//adicionar
+            if(produtos[i].produto.precoPromocao >0){
+              produtos[i].produto.preco = (produtos[i].produto.precoPromocao * produtos[i].quantidade);
+              produtos[i].valorUnitario = produtos[i].produto.precoPromocao ;
+            }else{
+              produtos[i].produto.preco = produtos[i].produto.preco * produtos[i].quantidade;
+              produtos[i].valorUnitario = produtos[i].produto.preco ;
+            }
             produtos[i].quantidade = produtos[i].quantidade + 1;
           }
           localStorage.setItem("produtos", JSON.stringify(produtos));
         } else {
+
           break;
         }
       }

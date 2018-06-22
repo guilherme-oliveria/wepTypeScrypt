@@ -42,17 +42,33 @@ export class HomeCompoment implements OnInit{
 
             let item = {
                 produto: produto,
-                index: produtos.length + 1,
+                index: produtos.length ,
                 quantidade: 1,
-                valorUnitario: 0
+                valorUnitario: 0,
+                promocao: 0
               }
               var teste = true;
 
               for (let i = 0; i < produtos.length; i++) {
                 if (produtos[i].produto.id == item.produto.id) {
-                  produtos[i].produto.preco =  produtos[i].produto.preco + item.produto.preco;
-                  produtos[i].quantidade = produtos[i].quantidade + 1;
-                  produtos[i].valorUnitario = produto.preco;
+                  if (produtos[i].quantidade > 1 ){
+                    if(produtos[i].produto.precoPromocao >0){
+                      produtos[i].produto.preco = (produtos[i].produto.precoPromocao * produtos[i].quantidade);
+                      produtos[i].valorUnitario = produtos[i].produto.precoPromocao ;
+                    }else{
+                      produtos[i].produto.preco = produtos[i].produto.preco * produtos[i].quantidade;
+                      produtos[i].valorUnitario = produtos[i].produto.preco ;
+                    }
+                  }else{
+                    if(produtos[i].produto.precoPromocao >0){
+                      produtos[i].produto.preco = produtos[i].produto.precoPromocao * ( produtos[i].quantidade+1);
+                      produtos[i].valorUnitario = produtos[i].produto.precoPromocao ;
+                    }else{
+                      produtos[i].produto.preco = produtos[i].produto.preco * (produtos[i].quantidade);
+                      produtos[i].valorUnitario = produtos[i].produto.preco ;
+                    }
+                  }
+                  //produtos[i].promocao = item.produto.precoPromocao;
                   localStorage.setItem("produtos", JSON.stringify(produtos));
                   teste = false;
                 }

@@ -31,9 +31,9 @@
                     </form>
                   </div>
         
-                    <div style="padding:10px 0 5px 0; margin-top:5px;"><a  (click)="atualizandoItem(p.produto, 1)"><i class="fa fa-plus " aria-hidden="true"></i></a></div>
+                    <div style="padding:10px 0 5px 0; margin-top:5px;"><a  (click)="atualizandoItem(p.produto, 1,p.quantidade)"><i class="fa fa-plus " aria-hidden="true"></i></a></div>
             
-                    <div style="padding:5px 0 5px 0;margin-top:-5px;"><a (click)="atualizandoItem(p.produto, 0)"><i class="fa fa-minus" aria-hidden="true"></i> </a></div>
+                    <div style="padding:5px 0 5px 0;margin-top:-5px;"><a (click)="atualizandoItem(p.produto, 0,p.quantidade)"><i class="fa fa-minus" aria-hidden="true"></i> </a></div>
                   </div>
                 </td>
                 <td id="Quant">  {{p.produto.preco}}</td>
